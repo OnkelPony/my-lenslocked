@@ -11,11 +11,17 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprint(w, "<h1>Contact page</h1><p><a href=\"mailto:zwo@centrum.cz\">Napiš mi</a>")
 }
 
+func pathHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, r.URL.Path)
+}
+
 func main() {
-	http.HandleFunc("/", homeHandler)
+	http.HandleFunc("/", pathHandler)
+	//	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/contacts", contactHandler)
 	fmt.Println("Starting the server on :3000...")
 	http.ListenAndServe(":3000", nil)
