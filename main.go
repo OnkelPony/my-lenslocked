@@ -21,14 +21,16 @@ func notFoundHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "<h1>Page not found, jako fakt ne...</h1>")
 }
 func pathHandler(w http.ResponseWriter, r *http.Request) {
-	switch r.URL.Path {
-	case "/":
-		homeHandler(w, r)
-	case "contacts":
-		contactHandler(w, r)
-	default:
-		notFoundHandler(w, r)
-	}
+	fmt.Fprintln(w, r.URL.Path)
+	fmt.Fprintln(w, r.URL.RawPath)
+	// switch r.URL.Path {
+	// case "/":
+	// 	homeHandler(w, r)
+	// case "contacts":
+	// 	contactHandler(w, r)
+	// default:
+	// 	notFoundHandler(w, r)
+	// }
 }
 
 func main() {
