@@ -15,6 +15,19 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "<h1>Contact page</h1><p><a href=\"mailto:zwo@centrum.cz\">Napiš mi</a>")
 }
 
+func faqHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, `
+<h1>FAQ</h1><br>
+<ul>
+	<li>Q: Na jaké palivo lítá větroň?</li>
+	<li>A: Vózduch</li>
+	<br>
+	<li>Q: Kolik válců má čtvřválcový motor?</li>
+	<li>A: Bílý</li>
+</ul>`)
+}
+
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 }
@@ -27,6 +40,8 @@ func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		homeHandler(w, r)
 	case "/contacts":
 		contactHandler(w, r)
+	case "/faq":
+		faqHandler(w, r)
 	default:
 		notFoundHandler(w, r)
 	}
