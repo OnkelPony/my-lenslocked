@@ -25,7 +25,8 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 	<br>
 	<li>Q: Kolik válců má čtvřválcový motor?</li>
 	<li>A: Bílý</li>
-</ul>`)
+</ul>
+`)
 }
 
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
