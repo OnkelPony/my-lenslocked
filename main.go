@@ -43,12 +43,12 @@ func galleryHandler(w http.ResponseWriter, r *http.Request) {
 //TODO: Add middleware Logger to single route.
 func main() {
 	r := chi.NewRouter()
-	r.Use(middleware.Logger)
+	r.Use(middleware.Heartbeat("/ping"))
 	r.Get("/", homeHandler)
-	r.Get("/contact", contactHandler)
+	r.With(middleware.Logger).Get("/contact", contactHandler)
 	r.Get("/faq", faqHandler)
 	r.Get("/gallery/{userID}", galleryHandler)
-	r.NotFound(notFoundHandler)
+	r.With(middleware.Logger).NotFound(notFoundHandler)
 	fmt.Println("Starting the server on :3000...")
 	http.ListenAndServe(":3000", r)
 }
