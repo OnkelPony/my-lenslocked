@@ -7,7 +7,7 @@ import (
 
 type User struct {
 	Name string
-	Age  int
+	Bio  template.HTML
 }
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 
 	user := User{
 		Name: "Kelly Divine",
-		Age:  108,
+		Bio:  `<script> alert("You've been pwned!") </script>`,
 	}
 
 	err = t.Execute(os.Stdout, user)
