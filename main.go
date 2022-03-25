@@ -17,7 +17,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "There was an error parsing template.", http.StatusInternalServerError)
 		return
 	}
-	err = tpl.Execute(w, "prase")
+	err = tpl.Execute(w, nil)
 	if err != nil {
 		log.Printf("executing template: %v", err)
 		http.Error(w, "There was an error executing template.", http.StatusInternalServerError)
