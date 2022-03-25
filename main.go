@@ -37,17 +37,8 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func faqHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, `
-<h1>FAQ</h1><br>
-<ul>
-	<li>Q: Na jaké palivo lítá větroň?</li>
-	<li>A: Vózduch</li>
-	<br>
-	<li>Q: Kolik válců má čtvřválcový motor?</li>
-	<li>A: Bílý</li>
-</ul>
-`)
+	tplPath := filepath.Join("templates", "faq.gohtml")
+	executeTemplate(w, tplPath)
 }
 
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
@@ -59,7 +50,6 @@ func galleryHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<h1>Welcome, %v ;-)</h1>", userID)
 }
 
-//TODO: Add middleware Logger to single route.
 func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Heartbeat("/ping"))
