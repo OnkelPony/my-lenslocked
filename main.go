@@ -4,14 +4,23 @@ import (
 	"fmt"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"html/template"
+	"log"
 	"net/http"
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	bio := `<script> alert("You've been pwned!") </script>`
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, "<h1>Welcome to my great site, passive income!</h1>")
-	fmt.Fprint(w, "<h2>Bio: "+bio+"</h2>")
+	tpl, err := template.ParseFiles("templates/home.gohtml")
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		http.Error(w, "There was an error parsing template.", http.StatusInternalServerError)
+		return
+	}
+	err = tpl.Execute(w, nil)
+	if err != nil {
+		panic(err) //TODO: Remove the panic.
+	}
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
