@@ -1,5 +1,15 @@
-<h1>Hello, {{.Name}}</h1>
+<h1>I'm, {{.Name}}</h1>
 <p>Bio: {{.Bio}}</p>
 <p>My age is {{.Age}}</p>
-<h3>My father is {{.Father}}</h3>
-<br>
+<h3>My lovers are</h3>
+<ol>
+    {{range $key, $value := .Lovers}}
+    <li>{{$value}}</li>
+    {{end}}
+</ol>
+<h3>Positions I do</h3>
+<ul>
+    {{range $key, $value := .Positions}}
+    <li>{{$key}} - {{$value}}</li>
+    {{end}}
+</ul>

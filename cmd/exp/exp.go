@@ -6,10 +6,11 @@ import (
 )
 
 type User struct {
-	Name   string
-	Bio    string
-	Age    int
-	Father string
+	Name      string
+	Bio       string
+	Age       int
+	Lovers    []string
+	Positions map[string]string
 }
 
 func main() {
@@ -20,9 +21,14 @@ func main() {
 
 	user := User{
 		Name:   "Kelly Divine",
-		Bio:    `I'm really good Go dev, pyčo!`,
-		Age:    108,
-		Father: "Ken Divine",
+		Bio:    "I'm porn actress, really good in anal.",
+		Age:    37,
+		Lovers: []string{"Giorgio", "Schorschi", "OnkelPony", "Pachatel"},
+		Positions: map[string]string{
+			"deepthroat": "like",
+			"missionary": "dislike",
+			"anal":       "love",
+		},
 	}
 
 	err = t.Execute(os.Stdout, user)
