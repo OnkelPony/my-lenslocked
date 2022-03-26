@@ -6,9 +6,10 @@ import (
 )
 
 type User struct {
-	Name string
-	Bio  template.HTML
-	Age  int
+	Name   string
+	Bio    string
+	Age    int
+	Father string
 }
 
 func main() {
@@ -18,9 +19,10 @@ func main() {
 	}
 
 	user := User{
-		Name: "Kelly Divine",
-		Bio:  `<script> alert("You've been pwned!") </script>`,
-		Age:  108,
+		Name:   "Kelly Divine",
+		Bio:    `I'm really good Go dev, pyčo!`,
+		Age:    108,
+		Father: "Ken Divine",
 	}
 
 	err = t.Execute(os.Stdout, user)
