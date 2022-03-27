@@ -11,6 +11,12 @@ type User struct {
 	Age       int
 	Lovers    []string
 	Positions map[string]string
+	HairStyle Hair
+}
+
+type Hair struct {
+	Color  string
+	Length int
 }
 
 func main() {
@@ -19,7 +25,7 @@ func main() {
 		panic(err)
 	}
 
-	user := User{
+	kelly := User{
 		Name:   "Kelly Divine",
 		Bio:    "I'm porn actress, really good in anal.",
 		Age:    37,
@@ -29,9 +35,13 @@ func main() {
 			"missionary": "dislike",
 			"anal":       "love",
 		},
+		HairStyle: Hair{
+			Color:  "red",
+			Length: 27,
+		},
 	}
 
-	err = t.Execute(os.Stdout, user)
+	err = t.Execute(os.Stdout, kelly)
 	if err != nil {
 		panic(err)
 	}

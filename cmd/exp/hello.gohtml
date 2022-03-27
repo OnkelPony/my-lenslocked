@@ -1,6 +1,11 @@
 <h1>I'm, {{.Name}}</h1>
 <p>Bio: {{.Bio}}</p>
 <p>My age is {{.Age}}</p>
+<h2>Deatils about my hair</h2>
+<ul>
+    <li>Color: {{.HairStyle.Color}}</li>
+    <li>Length: {{.HairStyle.Length}}</li>
+</ul>
 <h3>My lovers are</h3>
 <ol>
     {{range $key, $value := .Lovers}}
@@ -13,3 +18,4 @@
     <li>{{$key}} - {{$value}}</li>
     {{end}}
 </ul>
+<h4>My relation to anal sex: {{.Positions.anal}}</h4>
