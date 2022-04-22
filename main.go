@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/OnkelPony/my-lenslocked/views"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"log"
-	"my-lenslocked/views"
 	"net/http"
 	"path/filepath"
 )

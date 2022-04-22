@@ -1,4 +1,4 @@
-module my-lenslocked
+module github.com/OnkelPony/my-lenslocked
 
 go 1.17
 
