@@ -23,23 +23,14 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Heartbeat("/ping"))
 
-	tpl, err := views.Parse(filepath.Join("templates", "home.gohtml"))
-	if err != nil {
-		panic(err)
-	}
-	r.Get("/", controllers.StaticHandler(tpl))
+	r.Get("/", controllers.StaticHandler(
+		views.Must(views.Parse(filepath.Join("templates", "home.gohtml")))))
 
-	tpl, err = views.Parse(filepath.Join("templates", "contact.gohtml"))
-	if err != nil {
-		panic(err)
-	}
-	r.With(middleware.Logger).Get("/contact", controllers.StaticHandler(tpl))
+	r.With(middleware.Logger).Get("/contact", controllers.StaticHandler(
+		views.Must(views.Parse(filepath.Join("templates", "contact.gohtml")))))
 
-	tpl, err = views.Parse(filepath.Join("templates", "faq.gohtml"))
-	if err != nil {
-		panic(err)
-	}
-	r.Get("/faq", controllers.StaticHandler(tpl))
+	r.Get("/faq", controllers.StaticHandler(
+		views.Must(views.Parse(filepath.Join("templates", "faq.gohtml")))))
 
 	r.Get("/gallery/{userID}", galleryHandler)
 	r.With(middleware.Logger).NotFound(notFoundHandler)
