@@ -32,6 +32,9 @@ func main() {
 	r.Get("/faq", controllers.StaticHandler(
 		views.Must(views.Parse(filepath.Join("templates", "faq.gohtml")))))
 
+	r.With(middleware.Logger).Get("/time", controllers.StaticHandler(
+		views.Must(views.Parse(filepath.Join("templates", "time.gohtml")))))
+
 	r.Get("/gallery/{userID}", galleryHandler)
 	r.With(middleware.Logger).NotFound(notFoundHandler)
 	fmt.Println("Starting the server on :3000...")
