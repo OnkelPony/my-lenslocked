@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"github.com/OnkelPony/my-lenslocked/controllers"
+	"github.com/OnkelPony/my-lenslocked/templates"
 	"github.com/OnkelPony/my-lenslocked/views"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"net/http"
-	"path/filepath"
 )
 
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
@@ -24,16 +24,16 @@ func main() {
 	r.Use(middleware.Heartbeat("/ping"))
 
 	r.Get("/", controllers.StaticHandler(
-		views.Must(views.Parse(filepath.Join("templates", "home.gohtml")))))
+		views.Must(views.ParseFS(templates.FS, "home.gohtml"))))
 
 	r.With(middleware.Logger).Get("/contact", controllers.StaticHandler(
-		views.Must(views.Parse(filepath.Join("templates", "contact.gohtml")))))
+		views.Must(views.ParseFS(templates.FS, "contact.gohtml"))))
 
 	r.Get("/faq", controllers.StaticHandler(
-		views.Must(views.Parse(filepath.Join("templates", "faq.gohtml")))))
+		views.Must(views.ParseFS(templates.FS, "faq.gohtml"))))
 
 	r.With(middleware.Logger).Get("/time", controllers.StaticHandler(
-		views.Must(views.Parse(filepath.Join("templates", "time.gohtml")))))
+		views.Must(views.ParseFS(templates.FS, "time.gohtml"))))
 
 	r.Get("/gallery/{userID}", galleryHandler)
 	r.With(middleware.Logger).NotFound(notFoundHandler)
