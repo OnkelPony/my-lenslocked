@@ -24,7 +24,7 @@ func main() {
 	r.Use(middleware.Heartbeat("/ping"))
 
 	r.Get("/", controllers.StaticHandler(
-		views.Must(views.ParseFS(templates.FS, "home.gohtml"))))
+		views.Must(views.ParseFS(templates.FS, "home.gohtml", "whatever.gohtml"))))
 
 	r.With(middleware.Logger).Get("/contact", controllers.StaticHandler(
 		views.Must(views.ParseFS(templates.FS, "contact.gohtml"))))
