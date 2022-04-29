@@ -29,7 +29,7 @@ func main() {
 	r.With(middleware.Logger).Get("/contact", controllers.StaticHandler(
 		views.Must(views.ParseFS(templates.FS, "contact.gohtml"))))
 
-	r.Get("/faq", controllers.StaticHandler(
+	r.Get("/faq", controllers.FAQ(
 		views.Must(views.ParseFS(templates.FS, "faq.gohtml"))))
 
 	r.With(middleware.Logger).Get("/time", controllers.StaticHandler(
