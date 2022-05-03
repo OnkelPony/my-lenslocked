@@ -24,12 +24,12 @@ func FAQ(tpl views.Template) http.HandlerFunc {
 			QType:    "blbá",
 		},
 		{
-			Question: "Za kolik jdeš?",
+			Question: "Za kolik to máš?",
 			Answer:   "Za pade.",
 			QType:    "přímá",
 		},
 		{
-			Question: "Is anal included?",
+			Question: "Is ammunition included?",
 			Answer:   "Of course!",
 			QType:    "chytrá",
 		},
