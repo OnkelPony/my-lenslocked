@@ -1,3 +1,4 @@
+{{template "header" .}}
 <h1>FAQ</h1><br>
 
 <ul>
@@ -5,8 +6,8 @@
     {{template "qa" .}}
     {{end}}
 </ul>
+{{template "footer" .}}
 
 {{define "qa"}}
     <li>Q: <b>{{.Question}}</b> A: {{.Answer}}<i> ({{.QType}} otázka)</i></li>
 {{end}}
-{{/*<pre>{{.}}</pre>*/}}
