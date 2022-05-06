@@ -10,23 +10,37 @@
 
     </head>
     <body>
-        <header class="bg-gradient-to-r from-blue-600 to-red-600 text-gray-200">
-            <nav class="px-8 py-6 flex items-center space-x-12">
-                <div class="text-4xl font-serif">LensLocked</div>
-                <div class="flex-grow">
-                    <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/">Home</a>
-                    <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/contact">Contact</a>
-                    <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/faq">FAQ</a>
-                </div>
-                <div class="space-x-4">
-                    <a href="#">Sign in</a>
-                    <a href="#" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded">Sign up</a>
-                </div>
-            </nav>
-        </header>
+    <header class="bg-gradient-to-r from-blue-600 to-red-600 text-gray-200">
+        <nav class="px-8 py-6 flex items-center space-x-12">
+            <div class="text-4xl font-serif">LensLocked</div>
+            <div class="flex-grow">
+                <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/">Home</a>
+                <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/contact">Contact</a>
+                <a class="font-semibold hover:text-yellow-100 pr-8 text-lg" href="/faq">FAQ</a>
+            </div>
+            <div class="space-x-4">
+                <a href="#">Sign in</a>
+                <a href="#" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded">Sign up</a>
+            </div>
+        </nav>
+    </header>
 {{end}}
 <!-- Each page's content goes here. -->
 {{define "footer"}}
+    <footer class="bg-gradient-to-l from-blue-600 to-red-600 text-gray-200">
+        <div class="p-3 text-center">
+            <p class="text-lg text-yellow-100 hover:text-yellow-200 hover:scale-110 py-3 ">Když footer, tak
+                footer...</p>
+            <div class="">
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, IDF!</button>
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, IAF!</button>
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, Shabak!</button>
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, Aman!</button>
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, Mosad!</button>
+                <button class="bg-blue-500 focus:ring-2 focus:ring-red-300 p-1 rounded hover:text-yellow-200">Toda raba, Kidon!</button>
+            </div>
+        </div>
+    </footer>
     </body>
     </html>
 {{end}}

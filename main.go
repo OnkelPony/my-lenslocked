@@ -37,6 +37,8 @@ func main() {
 
 	r.Get("/gallery/{userID}", galleryHandler)
 	r.With(middleware.Logger).NotFound(notFoundHandler)
-	fmt.Println("Starting the server on :3000...")
+	fmt.Println(templates.StartMessage)
+	whatever, _ := templates.FS.ReadFile("whatever.gohtml")
+	fmt.Println(string(whatever))
 	http.ListenAndServe(":3000", r)
 }
