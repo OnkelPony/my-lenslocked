@@ -12,5 +12,5 @@ type Users struct {
 }
 
 func (u Users) New(w http.ResponseWriter, r *http.Request) {
-	// TODO: Render the signup page.
+	u.Templates.New.Execute(w, nil)
 }

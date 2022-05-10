@@ -35,8 +35,9 @@ func main() {
 	r.With(middleware.Logger).Get("/time", controllers.StaticHandler(
 		views.Must(views.ParseFS(templates.FS, "time.gohtml"))))
 
-	r.Get("/signup", controllers.StaticHandler(
-		views.Must(views.ParseFS(templates.FS, "signup.gohtml", "tailwind.gohtml"))))
+	var usersC controllers.Users
+	usersC.Templates.New = views.Must(views.ParseFS(templates.FS, "signup.gohtml", "tailwind.gohtml"))
+	r.Get("/signup", usersC.New)
 
 	r.Get("/gallery/{userID}", galleryHandler)
 	r.With(middleware.Logger).NotFound(notFoundHandler)
